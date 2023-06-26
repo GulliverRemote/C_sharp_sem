@@ -1,6 +1,7 @@
 ﻿int Num(int num)
 {
     Console.WriteLine(num);
+    /*
     int c = num % 10,
         d = num / 10,
         res;
@@ -12,7 +13,11 @@
     {
         res = d;
     }
-    return res;
+    return res;*/
+
+    if (num / 10 > num % 10)
+        return num / 10;
+    return num % 10;
 }
 
 int a = new Random().Next(10, 100);
