@@ -1,6 +1,6 @@
 ﻿void DayOff(int day)
 {
-    if (day == 1)
+    /*if (day == 1)
         Console.WriteLine("Понедельник - день тяжелый, работаем");
     else if (day == 2)
         Console.WriteLine("Вторник - отдых от понедельника, работаем");
@@ -18,6 +18,14 @@
         );
     else
         Console.WriteLine("Нет такого дня?");
+        */
+
+    if (day > 0 && day < 6)
+        Console.WriteLine("Будний день");
+    else if (day > 5 && day < 8)
+        Console.WriteLine("ВЫХОДНОЙ!!!");
+    else
+        Console.WriteLine("Кто здесь?");
 }
 
 Console.WriteLine("Введите день недели цифрой");
