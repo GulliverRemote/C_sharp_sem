@@ -1,4 +1,5 @@
-﻿void Kvadr(int num, int step)
+﻿// Программа выводит таблицу чисел в степени N для диапазона [1,N]
+void Kvadr(int num, int step)
 {
     int n = 1;
     if (num > 0)
