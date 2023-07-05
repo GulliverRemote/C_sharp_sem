@@ -1,9 +1,9 @@
 ﻿void Sum1toN(int num)
 {
-    int sum = 0;
+    int sum = 1;
     for (int i = 1; i < num + 1; i++)
-        sum += i;
-    Console.WriteLine("Summ =" + sum);
+        sum *= i;
+    Console.WriteLine("Summ = " + sum);
 }
 
 Console.WriteLine("Введите число");
