@@ -18,27 +18,21 @@ void PrintMas(int[] array)
     Console.WriteLine();
 }
 
-int[] MultPar(int[] array1)
+int[] MultPar(int[] array)
 {
-    if (array1.Length % 2 == 0)
-    {
-        int[] mas = new int[array1.Length / 2];
-        for (int i = 0; i < mas.Length; i++)
-        {
-            mas[i] = array1[i] * array1[array1.Length - i - 1];
-        }
-        return mas;
-    }
+    int[] mas;
+    if (array.Length % 2 == 0)
+        mas = new int[array.Length / 2];
     else
+        mas = new int[array.Length / 2 + 1];
+    for (int i = 0; i < mas.Length; i++)
     {
-        int[] mas = new int[array1.Length / 2 + 1];
-        for (int i = 0; i < mas.Length - 1; i++)
-        {
-            mas[i] = array1[i] * array1[array1.Length - i - 1];
-            mas[i + 1] = array1[i + 1];
-        }
-        return mas;
+        if (i != array.Length - i - 1)
+            mas[i] = array[i] * array[array.Length - i - 1];
+        else
+            mas[i] = array[i];
     }
+    return mas;
 }
 
 Console.Write("Введите число элементов массива : ");
