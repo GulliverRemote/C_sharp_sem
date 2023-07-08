@@ -4,13 +4,23 @@
 
 void Step(int num, int step)
 {
-    int res = 1;
+    double res = 1;
     if (step < 0 && num == 0)
-        {Console.Write("Err ");
-        return;}
-    else
+    {
+        Console.Write("Err ");
+        return;
+    }
+    else if (step >= 0)
+    {
         for (int i = 1; i <= step; i++)
             res *= num;
+    }
+    else
+    {
+        for (int i = 1; i <= Math.Abs(step); i++)
+            res *= num;
+        res = 1 / res;
+    }
     Console.Write($"Число {num} в степени {step} = {res} ");
 }
 
