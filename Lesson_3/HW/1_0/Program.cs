@@ -4,10 +4,14 @@
 
 void Step(int num, int step)
 {
+    int res = 1;
     if (step < 0 && num == 0)
-        Console.Write("Err ");
+        {Console.Write("Err ");
+        return;}
     else
-        Console.Write($"{Math.Pow(num, step)} ");
+        for (int i = 1; i <= step; i++)
+            res *= num;
+    Console.Write($"Число {num} в степени {step} = {res} ");
 }
 
 Console.WriteLine("Введите число ");
