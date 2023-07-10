@@ -20,30 +20,24 @@ void PrintMas(int[] array)
     Console.WriteLine();
 }
 
-void MultPar(int[] array)
+int[] MultPar(int[] array)
 {
-    // int[] mas;
-    // if (array.Length % 2 == 0)
-    //     mas = new int[array.Length / 2];
-    // else
-    //     mas = new int[array.Length / 2 + 1];
-    // for (int i = 0; i < mas.Length; i++)
-    // {
-    //     if (i != array.Length - i - 1)
-    //         mas[i] = array[array.Length - i - 1];
-    //     else
-    //         mas[i] = array[i];
-    // }
-
-    int size = array.Length;
-
-    for (int i = 0; i < size / 2; i++)
+    int[] mas = new int[array.Length];
+    for (int i = 0; i < mas.Length; i++)
     {
-        (array[i], array[size - i - 1]) = (array[size - i - 1], array[i]);
-        // int a=array[i];
-        // array[i] = array[size - i - 1];
-        // array[size - i - 1] = a;
+        mas[i] = array[array.Length-i-1];
     }
+    return mas;
+
+    // int size = array.Length;
+
+    // for (int i = 0; i < size / 2; i++)
+    // {
+    //     (array[i], array[size - i - 1]) = (array[size - i - 1], array[i]);
+    //     // int a=array[i];
+    //     // array[i] = array[size - i - 1];
+    //     // array[size - i - 1] = a;
+    // }
 }
 
 Console.Write("Введите число элементов массива : ");
@@ -55,6 +49,6 @@ int stop = int.Parse(Console.ReadLine()!);
 int[] arr = FillMas(num, start, stop);
 Console.WriteLine("\nМассив:");
 PrintMas(arr);
-MultPar(arr);
+int[] massive = MultPar(arr);
 Console.WriteLine("\nПолученный массив:");
-PrintMas(arr);
+PrintMas(massive);
