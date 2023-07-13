@@ -6,7 +6,10 @@ double[] FillMas(int n, double min, double max)
     double[] Mas = new double[n];
     for (int i = 0; i < n; i++)
     {
-        Mas[i] = new Random().NextDouble() * (max - min) + min;
+        Mas[i] = new Random().NextDouble();
+        Console.Write(Mas[i]+" ");
+        Mas[i]=Mas[i] * (max - min) + min;
+        Console.WriteLine(Mas[i]+" "); // min = 0; max = 10;  0*(10-0)+0=0;   1*(10-0)+1=10;   ??????????????????
         Mas[i] = Math.Round(Mas[i], 3);
     }
     return Mas;
@@ -27,7 +30,7 @@ double DiffMinMax(double[] array)
     double diff = 0,
         min = array[0],
         max = array[0];
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 1; i < array.Length; i++)
     {
         if (array[i] < min)
             min = array[i];
