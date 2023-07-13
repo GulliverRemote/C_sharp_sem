@@ -6,7 +6,7 @@ void PrintArray(int[,] matr)
     {
         for (int j = 0; j < matr.GetLength(1); j++)
         {
-            Console.Write($"{matr[i, j]} ");
+            Console.Write($"{matr[i, j],3} ");
         }
         Console.WriteLine();
     }
@@ -37,8 +37,11 @@ int[,] MultPar(int[,] array)
     return mas;
 }
 
-
-int[,] matrix = new int[3, 4];
+Console.WriteLine("Введите количество строк ");
+int m = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите количество столбцов ");
+int n = int.Parse(Console.ReadLine()!);
+int[,] matrix = new int[m, n];
 Console.Write("Введите минимальное значение элемента массива : ");
 int start = int.Parse(Console.ReadLine()!);
 Console.Write("Введите максимальное значение элемента массива : ");
