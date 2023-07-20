@@ -1,6 +1,6 @@
 ﻿// Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 
-void PrintArray(int[,] matr)
+int[,] PrintArray(int[,] matr)
 {
     Console.WriteLine("\nМассив:");
     for (int i = 0; i < matr.GetLength(0); i++)
@@ -11,9 +11,10 @@ void PrintArray(int[,] matr)
         }
         Console.WriteLine();
     }
+    return matr;
 }
 
-void FillArray(int[,] matr)
+int[,] FillArray(int[,] matr)
 {
     Console.Write("Введите минимальное значение элемента массива : ");
     int min = int.Parse(Console.ReadLine()!);
@@ -27,18 +28,19 @@ void FillArray(int[,] matr)
             matr[i, j] = new Random().Next(min, max + 1);
         }
     }
+    return matr;
 }
 
 void AverageOfColumn(int[,] array)
 {
-    for (int j = 0; j < array.GetLength(1); j ++)
+    for (int j = 0; j < array.GetLength(1); j++)
     {
         int sum = 0;
-        for (int i = 0; i < array.GetLength(0); i ++)
+        for (int i = 0; i < array.GetLength(0); i++)
         {
             sum += array[i, j];
         }
-        Console.WriteLine($"Среднее арифметическое в {j+1} столбце равно {sum}");
+        Console.WriteLine($"Среднее арифметическое в {j + 1} столбце равно {sum}");
     }
 }
 
@@ -48,7 +50,5 @@ Console.WriteLine("Введите количество столбцов ");
 int n = int.Parse(Console.ReadLine()!);
 int[,] matrix = new int[m, n];
 
-FillArray(matrix);
-
-PrintArray(matrix);
-AverageOfColumn(matrix);
+AverageOfColumn(PrintArray(FillArray(matrix)));
+//FillArray(PrintArray(AverageOfColumn(matrix)));
