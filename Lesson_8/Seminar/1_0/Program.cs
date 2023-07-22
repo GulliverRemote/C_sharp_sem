@@ -1,4 +1,6 @@
-﻿// Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+﻿// 1. Задайте двумерный массив. Напишите программу,
+// которая поменяет местами первую и последнюю строку массива.
+
 
 int[,] PrintArray(int[,] matr)
 {
@@ -31,16 +33,12 @@ int[,] FillArray(int[,] matr)
     return matr;
 }
 
-void AverageOfColumn(int[,] array)
+void ChangeRows(int[,] array)
 {
     for (int j = 0; j < array.GetLength(1); j++)
     {
-        double sum = 0;
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
-            sum += array[i, j];
-        }
-        Console.WriteLine($"Среднее арифметическое в {j + 1} столбце равно {Math.Round(sum/array.GetLength(0),2)}");
+        (array[0,j],array[array.GetLength(0)-1,j])=(array[array.GetLength(0)-1,j],array[0,j]); //метод кортежа
+
     }
 }
 
@@ -49,6 +47,8 @@ int m = int.Parse(Console.ReadLine()!);
 Console.WriteLine("Введите количество столбцов ");
 int n = int.Parse(Console.ReadLine()!);
 int[,] matrix = new int[m, n];
+FillArray(matrix);
+PrintArray(matrix);
+ChangeRows(matrix);
+PrintArray(matrix);
 
-AverageOfColumn(PrintArray(FillArray(matrix)));
-//FillArray(PrintArray(AverageOfColumn(matrix)));
