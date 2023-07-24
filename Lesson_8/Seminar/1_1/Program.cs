@@ -1,4 +1,7 @@
-﻿// Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+﻿// Задайте двумерный массив. Напишите программу,
+// которая заменяет строки на столбцы. В случае, если это
+// невозможно, программа должна вывести сообщение для
+// пользователя.
 
 int[,] PrintArray(int[,] matr)
 {
@@ -31,16 +34,20 @@ int[,] FillArray(int[,] matr)
     return matr;
 }
 
-void AverageOfColumn(int[,] array)
+void Transp(int[,] array)
 {
-    for (int j = 0; j < array.GetLength(1); j++)
+    if (array.GetLength(0)!=array.GetLength(1))
     {
-        double sum = 0;
-        for (int i = 0; i < array.GetLength(0); i++)
+     Console.WriteLine("Транспонирование не возможно");
+     return;
+    }
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < i; j++)
         {
-            sum += array[i, j];
+            (array[i, j], array[j, i]) = 
+            (array[j, i],array[i, j]); //метод кортежа
         }
-        Console.WriteLine($"Среднее арифметическое в {j + 1} столбце равно {Math.Round(sum/array.GetLength(0),2)}");
     }
 }
 
@@ -49,6 +56,7 @@ int m = int.Parse(Console.ReadLine()!);
 Console.WriteLine("Введите количество столбцов ");
 int n = int.Parse(Console.ReadLine()!);
 int[,] matrix = new int[m, n];
-
-AverageOfColumn(PrintArray(FillArray(matrix)));
-//FillArray(PrintArray(AverageOfColumn(matrix)));
+FillArray(matrix);
+PrintArray(matrix);
+Transp(matrix);
+PrintArray(matrix);

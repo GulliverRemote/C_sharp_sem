@@ -33,23 +33,23 @@ void FillArray(double[,] matr)
 void OutputElementArray(double[,] matr)
 {
     Console.Write("\nВведите строку элемента: ");
-    int row = int.Parse(Console.ReadLine()!) - 1;
+    int row = int.Parse(Console.ReadLine()!) ;
     Console.Write("Введите столбец элемента: ");
-    int column = int.Parse(Console.ReadLine()!) - 1;
+    int column = int.Parse(Console.ReadLine()!);
     if (
-        row > matr.GetLength(0) - 1
-        || row < matr.GetLength(0) - 1
-        || column > matr.GetLength(1) - 1
-        || column < matr.GetLength(1) - 1
+        row > matr.GetLength(0)
+        || row <= 0
+        || column > matr.GetLength(1)
+        || column <= 0
     )
     {
-        Console.WriteLine($"\nЭлемента с позицией [{row+1},{column+1}] нет в массиве");
+        Console.WriteLine($"\nЭлемента с позицией [{row},{column}] нет в массиве");
         return;
     }
     else
     {
         Console.WriteLine(
-            $"\nЭлемент с индексами [{row + 1},{column + 1}] равен {matr[row, column]}"
+            $"\nЭлемент с индексами [{row},{column}] равен {matr[row-1, column-1]}"
         );
         return;
     }
