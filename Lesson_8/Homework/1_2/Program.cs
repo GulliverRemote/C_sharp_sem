@@ -1,4 +1,7 @@
-﻿void PrintArray(int[,] matr)
+﻿// Задайте две матрицы. 
+// Напишите программу, которая будет находить произведение двух матриц.
+
+void PrintArray(int[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
     {
