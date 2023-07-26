@@ -3,7 +3,7 @@
 
 void IntegerNumbers(int a, int b) 
 {
-    if (a == b+1) return;
+    if (a > b) return;
     Console.Write(a + " ");
     IntegerNumbers(a + 1, b);
     
